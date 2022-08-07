@@ -14,7 +14,7 @@ public:
            q.push_back(nums[e]);
         }
          ans.push_back(q.front());
-        for(;i<n;++i,++s){
+        for(;i<n;i++,s++){
             if(nums[s]==q.front()){
                 q.pop_front();
             }
