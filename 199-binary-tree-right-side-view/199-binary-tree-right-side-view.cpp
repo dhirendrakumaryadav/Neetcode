@@ -24,11 +24,11 @@ public:
         while (!q.empty()) {
             int count = q.size();
             
-            for (int i = count; i > 0; i--) {
+            for (int i = 0; i <count; i++) {
                 TreeNode* node = q.front();
                 q.pop();
                 
-                if (i == count) {
+                if (i == 0) {
                     result.push_back(node->val);
                 }
                 
