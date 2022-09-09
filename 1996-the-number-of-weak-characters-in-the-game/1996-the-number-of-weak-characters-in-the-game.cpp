@@ -1,20 +1,21 @@
 class Solution {
 public:
-    int numberOfWeakCharacters(vector<vector<int>>& nums) {
-        int size=nums.size();
-        sort(nums.begin(),nums.end());
-        int ans=0,a=nums[size-1][0],b=nums[size-1][1],lmax=nums[size-1][1];;
-        for(int i=size-2;i>=0;i--)
-        {
-            if(nums[i][0]<nums[i+1][0]) 
-            {
-                b=lmax;
-               lmax=max(lmax,nums[i][1]); 
+    int numberOfWeakCharacters(vector<vector<int>>& nums) { 
+      int n=nums.size();
+      sort(nums.begin(),nums.end());
+        int a=nums[n-1][0];
+        int b=nums[n-1][1];
+        int l=nums[n-1][1];
+        int c=0;
+        for(int i=n-2;i>=0;i--){
+            if(nums[i][0]<nums[i+1][0]){
+            b=l;
+            l=max(nums[i][1],l);
             }
-            if(nums[i][0]<a && nums[i][1]<b)
-              ans++;
+            if(nums[i][0]<a&&nums[i][1]<b)c++;
         }
-        return ans;
+        return c;
+
     }
     };   
         
