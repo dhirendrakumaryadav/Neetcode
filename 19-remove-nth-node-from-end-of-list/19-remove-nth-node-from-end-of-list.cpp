@@ -25,8 +25,10 @@ public:
         while(n--){
             node=node->next;
         } 
+        ListNode* temp=node->next;
         
         node->next=node->next->next;
+        temp->next=NULL;
         
     
         return head;
