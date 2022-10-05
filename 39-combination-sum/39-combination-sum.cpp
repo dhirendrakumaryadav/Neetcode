@@ -1,23 +1,23 @@
 class Solution {
 public:
-    void find(int i,int t, vector<int>&c, vector<vector<int>> &a, vector<int> &d){
-        
-        if(i==c.size()){
-            if(t==0)a.push_back(d);
-            
+    void get(vector<int>& c,int target,int n,vector<vector<int>>&ans,vector<int>&res,int i){
+        if(target==0){
+            ans.push_back(res);
             return;
         }
-        if(t>=c[i]){
-            d.push_back(c[i]);
-            find(i,t-c[i],c,a,d);
-            d.pop_back();
+        if(i==n)return;
+        if(target>=c[i]){
+        res.push_back(c[i]);
+        get(c,target-c[i],n,ans,res,i);
+        res.pop_back();
         }
-        find(i+1,t,c,a,d);
+        get(c,target,n,ans,res,i+1);
+        
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<vector<int>>ans;
-        vector<int>ds;
-        find(0,target,candidates,ans,ds);
+        vector<int>res;
+        get(candidates,target,candidates.size(),ans,res,0);
         return ans;
     }
 };
