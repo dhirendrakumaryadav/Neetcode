@@ -18,9 +18,9 @@ public:
     }
     int dfs(TreeNode* root,int &res){
         if(root==NULL)return 0;
-        int le=dfs(root->left,res);
-        int rig=dfs(root->right,res);
-        res=max(res,rig+le);
-        return 1+max(rig,le);
+        int l=dfs(root->left,res);
+        int r=dfs(root->right,res);
+        res=max(res,l+r);
+        return 1+max(l,r);
     }
 };
