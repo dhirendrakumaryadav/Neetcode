@@ -28,7 +28,7 @@ public:
                     {
                         string adjNode = node;
                         adjNode[j] = ch;
-                       if(!visited.count(adjNode) &&                  find(bank.begin(),bank.end(),adjNode)!= bank.end())
+                       if(!visited.count(adjNode)&&find(bank.begin(),bank.end(),adjNode)!= bank.end())
             {
                 q.push(adjNode);
                 visited.insert(adjNode);
